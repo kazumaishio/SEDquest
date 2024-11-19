@@ -9,3 +9,10 @@
 
 Obs time and Collection area are necessary to achieve a reasonable statistical limitation. 
 
+
+
+
+## measure SED irregularity
+
+- Abbe value?
+  
