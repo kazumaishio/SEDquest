@@ -1,23 +1,28 @@
 # SEDquest
-
+In this project, I aim to investigate a possibility of assessing a spectral irregularity coming from variability and/or multiple components. I begin with two approaches, which are 'StackSEDs' and 'QuantifySEDshape'. 
 
 ## StackSEDs
+I assume some kinds of source spectra then simulate a number of observed spectra for each source. 
+Afterwards, I search for a way to characterise the difference between them. 
 
+### Inputs
 - Flux energy spectrum
 - Obs time
 - Collection area 
+- Background model
 
-Obs time and Collection area are necessary to achieve a reasonable statistical limitation. 
+Obs time, Collection area and Background model are necessary to achieve a reasonable statistical limitation. 
 
 
 
 
-## measure SED irregularity
+## QuantifySEDshape
+I search for measuring SED irregularity. 
 
 - Abbe value?
   
 
-# Usage
+# Usage (StackSEDs)
 
 ## Prepare the IRF
 

@@ -84,7 +84,13 @@ class SEDgenerator:
     # print("****sourcefunction : ",len(nevents))
     thisobs=[]
     for e_ref, e_min, e_max, Aeff in zip(self.CollectionArea['e_ref'].value,self.CollectionArea['e_min'].value, self.CollectionArea['e_max'].value, self.CollectionArea['Aeff']):
-      flux,_=integrate.quad(sourcefunction, a=e_min, b=e_max)
+      if sourcefunction.__class__.__name__=='compositeSpectrum':
+        flux=0
+        for func in sourcefunction.get_components():
+          flux_ind,_=integrate.quad(func, a=e_min, b=e_max)
+          flux= flux+flux_ind
+      else:
+        flux,_=integrate.quad(sourcefunction, a=e_min, b=e_max)
       # print(flux)
       nevent=flux/u.cm/u.cm/u.s*Aeff*obstime.to(u.s)
       (nevent.unit) #for recalculating the unit
@@ -111,7 +117,13 @@ class SEDgenerator:
     thisobs_sed_err=[]
 
     for e_ref, e_min, e_max, Aeff in zip(self.CollectionArea['e_ref'].value,self.CollectionArea['e_min'].value, self.CollectionArea['e_max'].value, self.CollectionArea['Aeff']):
-      flux,_=integrate.quad(sourcefunction, a=e_min, b=e_max)
+      if sourcefunction.__class__.__name__=='compositeSpectrum':
+        flux=0
+        for func in sourcefunction.get_components():
+          flux_ind,_=integrate.quad(func, a=e_min, b=e_max)
+          flux= flux+flux_ind
+      else :      
+        flux,_=integrate.quad(sourcefunction, a=e_min, b=e_max)
       # print(flux)
       nevent=flux/u.cm/u.cm/u.s*Aeff*obstime.to(u.s)
       (nevent.unit) #for recalculating the unit
@@ -267,10 +279,18 @@ class compositeSpectrum:
       y= y+x*x*1e-6*func(x)*u.Unit('TeV/cm2 s')
     return y
   def __call__(self,x): #/GeV cm2 s
+    # NOTE: this does not work for numpy.integrate.quad function.
+    # Thus, each component needs to be processed separately outside this class.
+    # -> use get_components() function.
     y=np.zeros(len(x))
     for func in self.functions:
+      # print(x)
+      # print(func(x))
       y= y+func(x)
     return y
+  def get_components(self):
+    return self.functions
+  
 
   
 
