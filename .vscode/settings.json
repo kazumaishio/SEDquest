@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "CollareaExtractor.C": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "FluxExtractor.C": "cpp"
+  }
+}
