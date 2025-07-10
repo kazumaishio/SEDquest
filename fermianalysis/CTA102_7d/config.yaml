@@ -1,0 +1,37 @@
+data:
+  evfile : ./list.txt
+  scfile : ./spacecraft/L2504301116440DD0AB4349_SC00.fits
+  ltcube : null
+
+binning:
+  roiwidth   : 10
+  binsz      : 0.1
+  binsperdec : 8
+
+selection :
+  emin : 100.0
+  emax : 500000.0
+  zmax    : 90
+  evclass : 128
+  evtype  : 3
+#  ra:  342.895                                                                                                                                                                                                                                                                    
+#  dec: 18.8111                                                                                                                                                                                                                                                                    
+  filter : null
+  tmin : 239557417
+  tmax : 767620443
+  target : 'CTA102'
+
+gtlike:
+  edisp : True
+  irfs : 'P8R3_SOURCE_V3'
+  edisp_disable : ['isodiff','galdiff']
+# edisp_disable : ['isodiff']                                                                                                                                                                                                                                                      
+#  edisp_bins : -2                                                                                                                                                                                                                                                                 
+
+model:
+  src_roiwidth : 20
+  galdiff  : '$FERMI_DIFFUSE_DIR/gll_iem_v07.fits'
+  isodiff  : '$FERMI_DIFFUSE_DIR/iso_P8R3_SOURCE_V2_v1.txt'
+#  galdiff  : '/home/kazuma/Workspace/Fermi/1_3C454/Background_Models/gll_iem_v07.fits'                                                                                                                                                                                            
+#  isodiff  : '/home/kazuma/Workspace/Fermi/1_3C454/Background_Models/iso_P8R3_SOURCE_V3_v1.txt'                                                                                                                                                                                   
+  catalogs : ['4FGL']
