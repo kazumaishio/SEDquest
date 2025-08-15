@@ -1,6 +1,8 @@
 # SEDquest
 In this project, I aim to investigate a possibility of assessing a spectral irregularity coming from variability and/or multiple components. I begin with two approaches, which are 'StackSEDs' and 'QuantifySEDshape'. 
 
+
+# SEDquest 1
 ## StackSEDs
 I assume some kinds of source spectra then simulate a number of observed spectra for each source. 
 Afterwards, I search for a way to characterise the difference between them. 
@@ -44,5 +46,35 @@ Under construction.
 /Users/kazuma/Workspace/Torun/SEDquest/SEDgenerator_test.ipynb
 ```
  
+
+
+
+
+# SED quest 2,3
+
+## SEDquest2-1: Markov Chain computation for peak-detection
+
+## SEDquest2-2: Numerical cross-check of peak-detection
+### theory validation from numerical aspect
+### peak-detection method validation
+
+
+## SEDquest3: 
+
+
+
+
+
+# Thoughts and discussion(20250602)
+## MAGIC SED peak detected, can it be true? 
+If true, we should see it somewhere again. 
+Fermi range investigated. -> No significance.
+
+### Reason 1: MAGIC was within the statistical fructuation?
+Conditions are different. (the middle datapoint is more significant in MAGIC)
+### Reason 2: Energy range is different.
+
+### Reason 3: time range is different.
+
 
 
